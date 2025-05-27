@@ -16,6 +16,11 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json, {"message": "API is running"})
         
+    def test_swagger(self):
+        response = self.client.get('/swagger')
+        self.assertEqual(response.status_code, 200)
+        
+        
     def test_login(self):
         response = self.client.post('/login')
         self.assertEqual(response.status_code, 200)
