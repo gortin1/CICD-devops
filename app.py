@@ -23,7 +23,7 @@ def login():
 @app.route('/coisa', methods=['GET'])
 def reaa():
     return jsonify(messagem="coisas")
-@app.route('coisasss', methods=['GET'])
+@app.route('/coisasss', methods=['GET'])
 def aaa():
     return jsonify(messagems=["oi"])
 
