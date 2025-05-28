@@ -35,7 +35,7 @@ jobs:
           name: api
       - name: load
         run: |
-          docker load -i api.tar
+          docker load -i api
       - name: run teste
         run:
           docker run api python app-teste.py
