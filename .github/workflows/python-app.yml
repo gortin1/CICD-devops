@@ -25,7 +25,7 @@ jobs:
         docker: "28.0.1"
     - name: Creating docker
       run: |
-        docker build api .
+       docker build -t api .
   test:
     runs-on: ubuntu-latest
     steps:
