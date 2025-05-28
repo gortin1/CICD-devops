@@ -31,7 +31,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: download docker image
         uses: actions/checkout@v4
-        with: api
+        with: 
+          name: api
       - name: load
         run: |
           docker load -i api.tar
