@@ -14,16 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v3
       - name: Build docker image
         run: docker build -t api .
-      - name: Saving docker image
-        run: |
-          docker save api -o api.tar
-      - name: Upload image
-        uses: actions/upload-artifact@v3
+      - name: Saving docker
+        run: docker save api -o api.tar
+      - name: upload docker
+        uses: actions/checkout@v4
         with:
-          name: docker-image
+          name: api
           path: api.tar
  
   test:
@@ -31,15 +29,16 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v3
-      - name: Download Docker image
-        uses: actions/download-artifact@v3
-        with:
-          name: docker-image
-      - name: Load Docker image
-        run: docker load -i api.tar
-      - name: Run tests
-        run: docker run api python app-teste.py
+      - name: download docker image
+        uses: actions/checkout@v4
+        with: api
+      - name: load
+        run: |
+          docker load -i api.tar
+      - name: run teste
+        run:
+          docker run api python app-teste.py
+      
           
   deploy:
     runs-on: ubuntu-latest
