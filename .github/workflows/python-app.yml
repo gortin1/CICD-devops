@@ -44,4 +44,4 @@ jobs:
         python-version: "3.10"
     - name: Test with pytest
       run: |
-        python app-teste.py"
+        python app-teste.py
