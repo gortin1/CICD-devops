@@ -22,7 +22,8 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: Run test
+      - name: Run tests with docker-compose
+        with: docker
         run: docker-compose run api python -m unittest discover
           
   deploy:
