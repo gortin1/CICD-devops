@@ -22,6 +22,8 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/docker-setup@v4
+
       - name: Setup docker
         uses: actions/docker-setup@v4
         with: 
