@@ -23,7 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run tests with docker-compose
-        with: docker
+        with: 
+          docker-version: '28.0.1'
         run: docker-compose run api python -m unittest discover
           
   deploy:
