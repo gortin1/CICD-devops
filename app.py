@@ -20,13 +20,6 @@ def get_items():
 def login():
     access_token = create_access_token(identity="user")
     return jsonify(access_token=access_token)
-@app.route('/coisa', methods=['GET'])
-def reaa():
-    return jsonify(messagem="coisas")
-@app.route('/coisasss', methods=['GET'])
-def aaa():
-    return jsonify(messagems=["oi"])
-
 @app.route('/protected', methods=['GET'])
 @jwt_required()
 def protected():
