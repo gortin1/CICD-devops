@@ -1,13 +1,9 @@
-name: Python application
+name: Docker Compose CI
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+    branches:
+      - main
 
 jobs:
   deploy:
