@@ -22,9 +22,12 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: Run tests with docker-compose
+      - name: Setup docker
+        uses: actions/docker-setup@v4
         with: 
           docker-version: '28.0.1'
+        
+      - name: Run tests with docker-compose
         run: docker-compose run api python -m unittest discover
           
   deploy:
