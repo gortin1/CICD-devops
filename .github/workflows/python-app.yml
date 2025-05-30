@@ -1,4 +1,4 @@
-name: Docker Compose CI
+name: Run Docker Compose
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +20,4 @@ jobs:
 
     - name: Run docker-compose
       run: |
-        ls -la  # ← Verifique se o docker-compose.yml está mesmo aqui
-        docker-compose -f docker-compose.yml up -d
+        docker-compose up -d
