@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: api-devops
-    env: docker
-    plan: free
-    branch: main
-    envVars:
-      - key: SECRET_KEY
-        value: "sua-chave-secreta"
