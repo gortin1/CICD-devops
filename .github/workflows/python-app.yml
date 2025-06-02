@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: setup Docker
-      uses: actions/setup-python@v3
-      with:
-        docker: "28.0.1"
     - name: Creating docker
       run: |
        docker build -t api .
@@ -31,7 +27,7 @@ jobs:
           sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.2/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
 
-      - name: Rodar testes com Docker Compose
+      - name: Testing with Docker Compose
         run: docker-compose run api python -m unittest discover app/tests
           
   deploy:
